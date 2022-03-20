@@ -1,0 +1,44 @@
+﻿@using Bus.Models.Entity
+@model List<TblSeferler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Sefer ID</th>
+        <th>Kalkis Sehir ID</th>
+        <th>Varis Sehir ID</th>
+        <th>Otobus ID</th>
+        <th>Calisanlar ID</th>
+        <th>Kalkis Zamani</th>
+        <th>Varis Zamani</th>
+        <th>Bilet Tuari</th>
+        <th>Guncelle</th>
+        <th>Sil</th>
+    </tr>
+    <tbody>
+
+        @foreach (var sfr in Model)
+        {
+        <tr>
+            <th>@sfr.SeferID</th>
+            <th>@sfr.TblSehirler.SehirAd</th>
+            <th>@sfr.TblSehirler.SehirAd</th>
+            <th>@sfr.TblOtobusler.Plaka</th>
+            <th>@sfr.TblCalisanlar.Ad</th>
+            <td>@sfr.KalkisZamani</td>
+            <td>@sfr.VarisZamani</td>
+            <td>@sfr.BiletTutari</td>
+            <td><a href="/Seferler/SeferlerGetir/@sfr.SeferID" class="btn btn-success">Güncelle</a></td>
+            @*<td><a href="/Seferler/Sil/@sfr.SeferID" class="btn btn-danger">Sil</a></td>*@
+            <td>@Html.ActionLink("Sil ", "Sil", new { id = sfr.SeferID}, new { @class = "btn btn-danger", onclick = "return confirm('Silmek Istediginizden Emin misiniz ?')" })</td>
+
+        </tr>
+
+        }
+    </tbody>
+</table>
+
+<a href="/Seferler/YeniSeferlerEkle/" class="btn btn-primary"> YENI SEFER EKLE</a>

@@ -1,0 +1,29 @@
+﻿@model Bus.Models.Entity.TblSehirler
+@{
+    ViewBag.Title = "YeniSehirlerEkle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    @*
+            <div>
+            <lable>Sehir ADI</lable>
+            <input type="text" class="form-control" name="TblSehirler" />
+
+        </div>
+    *@
+    <div>
+        <label>SEHIR ADI</label>
+        @Html.TextBoxFor(m => m.SehirAd, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:20px">
+        <button class="btn btn-info" id="btn1">Sehir Ekle</button>
+    </div>
+    <script>
+        $('#btn1').click(function () {
+            alert('Musteri Ekleme Islemi Yapildi...!');
+        });
+    </script>
+</form>
+
+

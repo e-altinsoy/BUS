@@ -1,0 +1,32 @@
+﻿@model Bus.Models.Entity.TblMesajlar
+@{
+    ViewBag.Title = "MesajlariGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>MesajlariGetir</h2>
+
+
+@using (Html.BeginForm("Guncelle", "Mesajlar", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.MesajID)
+        @Html.TextBoxFor(m => m.MesajID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Ad)
+        @Html.TextBoxFor(m => m.Ad, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Soyad)
+        @Html.TextBoxFor(m => m.Soyad, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Mesaj)
+        @Html.TextBoxFor(m => m.Mesaj, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <button class="btn btn-warning"> Otobusleri Guncelle</button>
+    </div>
+}

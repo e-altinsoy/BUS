@@ -1,0 +1,23 @@
+﻿@model Bus.Models.Entity.TblMarkalar
+@{
+    ViewBag.Title = "MarkalarGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>MarkalarGetir</h2>
+
+@using (Html.BeginForm("Guncelle", "Markalar", FormMethod.Post))
+
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.MarkaID)
+        @Html.TextBoxFor(m => m.MarkaID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.MarkaAd)
+        @Html.TextBoxFor(m => m.MarkaAd, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <button class="btn btn-warning"> Calisan Tip Guncelle</button>
+    </div>
+}

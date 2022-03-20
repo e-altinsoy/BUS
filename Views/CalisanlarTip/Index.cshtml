@@ -1,0 +1,30 @@
+﻿@using Bus.Models.Entity
+@model List<TblCalisanlarTipler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Calisan Tip ID</th>
+        <th>Calisan Tip AD</th>
+        <th>Guncelle</th>
+        <th>Sil</th>
+    </tr>
+    <tbody>
+        @foreach (var ctp in Model)
+        {
+        <tr>
+            <th>@ctp.CalisanTipID</th>
+            <td>@ctp.CalisanTipAd</td>
+            <td><a href="/CalisanlarTip/CalisanTipGetir/@ctp.CalisanTipID" class="btn btn-success">Güncelle</a></td>
+            @*<td><a href="/CalisanlarTip/Sil/@ctp.CalisanTipID" class="btn btn-danger">Sil</a></td>*@
+            <td>@Html.ActionLink("Sil ", "Sil", new { id = ctp.CalisanTipID}, new { @class = "btn btn-danger", onclick = "return confirm('Silmek Istediginizden Emin misiniz ?')" })</td>
+
+        </tr>
+
+        }
+    </tbody>
+</table>
+<a href="/CalisanlarTip/YeniCalisanlarTipEkle/" class="btn btn-primary"> YENI ÇALIŞAN TİPİ EKLE</a>

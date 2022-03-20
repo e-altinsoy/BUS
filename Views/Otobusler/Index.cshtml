@@ -1,0 +1,38 @@
+﻿@using Bus.Models.Entity
+@model List<TblOtobusler>
+   
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Otobus ID</th>
+        <th>Plaka</th>
+        <th>Koltuk Sayisi</th>
+        <th>Marka Ad</th>
+        <th>Aktif Mi?</th>
+        <th>Guncelle</th>
+        <th>Sil</th>
+    </tr>
+    <tbody>
+        @foreach (var tbs in Model)
+        {
+        <tr>
+
+            <th>@tbs.OtobusID</th>
+            <th>@tbs.Plaka</th>
+            <td>@tbs.KoltukSayisi</td>
+            <th>@tbs.TblMarkalar.MarkaAd</th>
+            <td>@tbs.AktifMi</td>
+            <td><a href="/Otobusler/OtobusleriGetir/@tbs.OtobusID" class="btn btn-success">Güncelle</a></td>
+            @*<td><a href="/Otobusler/Sil/@tbs.OtobusID" class="btn btn-danger">Sil</a></td>*@
+            <td>@Html.ActionLink("Sil ", "Sil", new { id = tbs.OtobusID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek Istediginizden Emin misiniz ?')" })</td>
+
+        </tr>
+    
+        }
+    </tbody>
+</table>
+<a href="/Otobusler/YeniOtobuslerEkle/" class="btn btn-primary"> YENI OTOBÜS EKLE</a>

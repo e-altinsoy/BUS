@@ -1,0 +1,39 @@
+﻿@model Bus.Models.Entity.TblOtobusler
+@{
+    ViewBag.Title = "YeniOtobuslerEkle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<form class="form-group" method="post">
+    <div>
+        <lable>Otobus Plakasi</lable>
+        @Html.TextBoxFor(m => m.Plaka, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Koltuk Sayisi</lable>
+        @Html.TextBoxFor(m => m.KoltukSayisi, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Markasi</lable>
+        @Html.TextBoxFor(m => m.TblMarkalar.MarkaAd, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Aktif mi ?</lable>
+        @Html.TextBoxFor(m => m.AktifMi, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:20px">
+        <button class="btn btn-info" id="btn1">Otobusun Plakasini Ekle</button>
+    </div>
+    <script>
+        $('#btn1').click(function () {
+            alert('Musteri Ekleme Islemi Yapildi...!');
+        });
+    </script>
+</form>
+
+

@@ -1,0 +1,46 @@
+﻿@using Bus.Models.Entity
+@model List<TblCalisanlar>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table">
+    <thead style="background-color:aliceblue">
+        <tr>
+            <th>Calisanlar ID</th>
+            <th>Calisanlar Tip ADI</th>
+            <th>Sube ADI</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Email</th>
+            <th>Telefon</th>
+            <th>Adres</th>
+            <th>Guncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cls in Model)
+        {
+        <tr>
+            <th>@Html.DisplayFor(x => cls.CalisanlarID)</th>
+            <th>@Html.DisplayFor(x => cls.TblCalisanlarTipler.CalisanTipAd)</th>
+            <th>@Html.DisplayFor(x => cls.TblSubeler.SubeAd)</th>
+            <td>@Html.DisplayFor(x => cls.Ad)</td>
+            <td>@Html.DisplayFor(x => cls.Soyad)</td>
+            <td>@Html.DisplayFor(x => cls.Email)</td>
+            <td>@Html.DisplayFor(x => cls.Telefon)</td>
+            <td>@Html.DisplayFor(x => cls.Adress)</td>
+            <td><a href="/Calisanlar/CalisanlariGetir/@cls.CalisanlarID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Calisanlar/Sil/@cls.CalisanlarID" class="btn btn-danger">Sil</a></td>
+            @*<td>@Html.ActionLink("Sil ", "Sil", new { id = cls.CalisanlarID}, new { @class = "btn btn-danger", onclick = "return confirm('Silmek Istediginizden Emin misiniz ?')" })</td>*@
+
+        </tr>
+
+        }
+
+    </tbody>
+</table>
+<a href="/Calisanlar/YeniCalisanlarEkle/" class="btn btn-primary"> YENI CALIŞAN EKLE</a>

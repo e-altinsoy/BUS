@@ -1,0 +1,45 @@
+﻿@using Bus.Models.Entity
+@model List<TblBiletler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="tabla table-bordered">
+    <tr>
+        <th>Bilet ID</th>
+        <th>Musteri ID</th>
+        <th>Sefer ID</th>
+        <th>T.C. No.</th>
+        <th>Yolcu Ad</th>
+        <th>Yolcu Soyad</th>
+        <th>Yolcu Cinsiyet</th>
+        <th>Koltuk NO</th>
+        <th>Ucret</th>
+        <th>Islem Zamani</th>
+        <th>Guncelle</th>
+        <th>Sil</th>
+    </tr>
+    <tbody>
+        @foreach (var blt in Model)
+        {
+        <tr>
+            <th>@blt.BIletID</th>
+            <th>@blt.MusteriID</th>
+            <th>@blt.SeferID</th>
+            <th>@blt.TC</th>
+            <td>@blt.YolcuAd</td>
+            <td>@blt.YolcuSoyad</td>
+            <td>@blt.YolcuCinsiyet</td>
+            <td>@blt.KoltukNo</td>
+            <td>@blt.Ucret</td>
+            <td>@blt.IslemZamani</td>
+            <td><a href="/Biletler/Guncelle/@blt.BIletID" class="btn btn-success">Güncelle</a></td>
+            @*<td><a href="/Biletler/Sil/@blt.BIletID" class="btn btn-danger">Sil</a></td>*@
+            <td>@Html.ActionLink("Sil ", "Sil", new { id = blt.BIletID}, new { @class = "btn btn-danger", onclick = "return confirm('Silmek Istediginizden Emin misiniz ?')" })</td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+<a href="/Biletler/YeniBiletlerEkle/" class="btn btn-primary"> YENI BİLET EKLE</a>

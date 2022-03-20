@@ -1,0 +1,531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BusBookingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TblBiletler">
+    <Key>
+      <PropertyRef Name="BIletID" />
+    </Key>
+    <Property Name="BIletID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MusteriID" Type="Int32" Nullable="false" />
+    <Property Name="SeferID" Type="Int32" Nullable="false" />
+    <Property Name="TC" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="YolcuAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="YolcuSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="YolcuCinsiyet" Type="Boolean" Nullable="false" />
+    <Property Name="KoltukNo" Type="Byte" Nullable="false" />
+    <Property Name="Ucret" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="IslemZamani" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="TblMusteriler" Relationship="Self.FK_TblBiletler_TblMusteriler" FromRole="TblBiletler" ToRole="TblMusteriler" />
+    <NavigationProperty Name="TblSeferler" Relationship="Self.FK_TblBiletler_TblSeferler" FromRole="TblBiletler" ToRole="TblSeferler" />
+    <NavigationProperty Name="TblSepets" Relationship="BusBookingModel.FK_TblSepet_TblBiletler" FromRole="TblBiletler" ToRole="TblSepet" />
+  </EntityType>
+  <EntityType Name="TblCalisanlar">
+    <Key>
+      <PropertyRef Name="CalisanlarID" />
+    </Key>
+    <Property Name="CalisanlarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CalisanTipID" Type="Int32" Nullable="false" />
+    <Property Name="SubeID" Type="Int32" Nullable="false" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="68" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefon" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Adress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="TblCalisanlarTipler" Relationship="Self.FK_TblCalisanlar_TblCalisanlarTipler" FromRole="TblCalisanlar" ToRole="TblCalisanlarTipler" />
+    <NavigationProperty Name="TblSubeler" Relationship="Self.FK_TblCalisanlar_TblSubeler" FromRole="TblCalisanlar" ToRole="TblSubeler" />
+    <NavigationProperty Name="TblSeferlers" Relationship="Self.FK_TblSeferler_TblCalisanlar" FromRole="TblCalisanlar" ToRole="TblSeferler" />
+  </EntityType>
+  <EntityType Name="TblCalisanlarTipler">
+    <Key>
+      <PropertyRef Name="CalisanTipID" />
+    </Key>
+    <Property Name="CalisanTipID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CalisanTipAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="TblCalisanlars" Relationship="Self.FK_TblCalisanlar_TblCalisanlarTipler" FromRole="TblCalisanlarTipler" ToRole="TblCalisanlar" />
+  </EntityType>
+  <EntityType Name="TblMarkalar">
+    <Key>
+      <PropertyRef Name="MarkaID" />
+    </Key>
+    <Property Name="MarkaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MarkaAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="TblOtobuslers" Relationship="Self.FK_TblOtobusler_TblMarkalar" FromRole="TblMarkalar" ToRole="TblOtobusler" />
+  </EntityType>
+  <EntityType Name="TblMasrafTipleri">
+    <Key>
+      <PropertyRef Name="MasrafTipID" />
+    </Key>
+    <Property Name="MasrafTipID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MasrafAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="TblOtobusMasraflaris" Relationship="Self.FK_TblOtobusMasraflari_TblMasrafTipleri" FromRole="TblMasrafTipleri" ToRole="TblOtobusMasraflari" />
+  </EntityType>
+  <EntityType Name="TblMesajlar">
+    <Key>
+      <PropertyRef Name="MesajID" />
+    </Key>
+    <Property Name="MesajID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="68" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Mesaj" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblMusteriler">
+    <Key>
+      <PropertyRef Name="MusteriID" />
+    </Key>
+    <Property Name="MusteriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TC" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="68" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefon" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cinsiyet" Type="Boolean" Nullable="false" />
+    <Property Name="DogumTarihi" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Adress" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="TblBiletlers" Relationship="Self.FK_TblBiletler_TblMusteriler" FromRole="TblMusteriler" ToRole="TblBiletler" />
+    <NavigationProperty Name="TblSepets" Relationship="BusBookingModel.FK_TblSepet_TblMusteriler" FromRole="TblMusteriler" ToRole="TblSepet" />
+    <NavigationProperty Name="TblKoltuklars" Relationship="BusBookingModel.FK_TblKoltuklar_TblMusteriler" FromRole="TblMusteriler" ToRole="TblKoltuklar" />
+  </EntityType>
+  <EntityType Name="TblOtobusler">
+    <Key>
+      <PropertyRef Name="OtobusID" />
+    </Key>
+    <Property Name="OtobusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Plaka" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KoltukSayisi" Type="Byte" Nullable="false" />
+    <Property Name="MarkaID" Type="Int32" Nullable="false" />
+    <Property Name="AktifMi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="TblMarkalar" Relationship="Self.FK_TblOtobusler_TblMarkalar" FromRole="TblOtobusler" ToRole="TblMarkalar" />
+    <NavigationProperty Name="TblOtobusMasraflaris" Relationship="Self.FK_TblOtobusMasraflari_TblOtobusler" FromRole="TblOtobusler" ToRole="TblOtobusMasraflari" />
+    <NavigationProperty Name="TblSeferlers" Relationship="Self.FK_TblSeferler_TblOtobusler" FromRole="TblOtobusler" ToRole="TblSeferler" />
+    <NavigationProperty Name="TblSepets" Relationship="BusBookingModel.FK_TblSepet_TblOtobusler" FromRole="TblOtobusler" ToRole="TblSepet" />
+  </EntityType>
+  <EntityType Name="TblOtobusMasraflari">
+    <Key>
+      <PropertyRef Name="OtobusMasrafID" />
+    </Key>
+    <Property Name="OtobusMasrafID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OtobusID" Type="Int32" Nullable="false" />
+    <Property Name="MasrafTipID" Type="Int32" Nullable="false" />
+    <Property Name="Tutar" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <NavigationProperty Name="TblMasrafTipleri" Relationship="Self.FK_TblOtobusMasraflari_TblMasrafTipleri" FromRole="TblOtobusMasraflari" ToRole="TblMasrafTipleri" />
+    <NavigationProperty Name="TblOtobusler" Relationship="Self.FK_TblOtobusMasraflari_TblOtobusler" FromRole="TblOtobusMasraflari" ToRole="TblOtobusler" />
+  </EntityType>
+  <EntityType Name="TblSeferler">
+    <Key>
+      <PropertyRef Name="SeferID" />
+    </Key>
+    <Property Name="SeferID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KalkisSehirID" Type="Int32" Nullable="false" />
+    <Property Name="VarisSehirID" Type="Int32" Nullable="false" />
+    <Property Name="OtobusID" Type="Int32" Nullable="false" />
+    <Property Name="CalisanlarID" Type="Int32" Nullable="false" />
+    <Property Name="KalkisZamani" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="VarisZamani" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BiletTutari" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <NavigationProperty Name="TblBiletlers" Relationship="Self.FK_TblBiletler_TblSeferler" FromRole="TblSeferler" ToRole="TblBiletler" />
+    <NavigationProperty Name="TblCalisanlar" Relationship="Self.FK_TblSeferler_TblCalisanlar" FromRole="TblSeferler" ToRole="TblCalisanlar" />
+    <NavigationProperty Name="TblOtobusler" Relationship="Self.FK_TblSeferler_TblOtobusler" FromRole="TblSeferler" ToRole="TblOtobusler" />
+    <NavigationProperty Name="TblSehirler" Relationship="Self.FK_TblSeferler_TblSehirler" FromRole="TblSeferler" ToRole="TblSehirler" />
+    <NavigationProperty Name="TblSehirler1" Relationship="Self.FK_TblSeferler_TblSehirler1" FromRole="TblSeferler" ToRole="TblSehirler" />
+    <NavigationProperty Name="TblSepets" Relationship="BusBookingModel.FK_TblSepet_TblSeferler" FromRole="TblSeferler" ToRole="TblSepet" />
+  </EntityType>
+  <EntityType Name="TblSehirler">
+    <Key>
+      <PropertyRef Name="SehirID" />
+    </Key>
+    <Property Name="SehirID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SehirAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="TblSeferlers" Relationship="Self.FK_TblSeferler_TblSehirler" FromRole="TblSehirler" ToRole="TblSeferler" />
+    <NavigationProperty Name="TblSeferlers1" Relationship="Self.FK_TblSeferler_TblSehirler1" FromRole="TblSehirler" ToRole="TblSeferler" />
+    <NavigationProperty Name="TblSubelers" Relationship="Self.FK_TblSubeler_TblSehirler" FromRole="TblSehirler" ToRole="TblSubeler" />
+    <NavigationProperty Name="TblSepets" Relationship="BusBookingModel.FK_TblSepet_TblSehirler" FromRole="TblSehirler" ToRole="TblSepet" />
+  </EntityType>
+  <EntityType Name="TblSubeler">
+    <Key>
+      <PropertyRef Name="SubeID" />
+    </Key>
+    <Property Name="SubeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SehirID" Type="Int32" Nullable="false" />
+    <Property Name="SubeAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="TblCalisanlars" Relationship="Self.FK_TblCalisanlar_TblSubeler" FromRole="TblSubeler" ToRole="TblCalisanlar" />
+    <NavigationProperty Name="TblSehirler" Relationship="Self.FK_TblSubeler_TblSehirler" FromRole="TblSubeler" ToRole="TblSehirler" />
+  </EntityType>
+  <Association Name="FK_TblBiletler_TblMusteriler">
+    <End Role="TblMusteriler" Type="Self.TblMusteriler" Multiplicity="1" />
+    <End Role="TblBiletler" Type="Self.TblBiletler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblMusteriler">
+        <PropertyRef Name="MusteriID" />
+      </Principal>
+      <Dependent Role="TblBiletler">
+        <PropertyRef Name="MusteriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblBiletler_TblSeferler">
+    <End Role="TblSeferler" Type="Self.TblSeferler" Multiplicity="1" />
+    <End Role="TblBiletler" Type="Self.TblBiletler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblSeferler">
+        <PropertyRef Name="SeferID" />
+      </Principal>
+      <Dependent Role="TblBiletler">
+        <PropertyRef Name="SeferID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblCalisanlar_TblCalisanlarTipler">
+    <End Role="TblCalisanlarTipler" Type="Self.TblCalisanlarTipler" Multiplicity="1" />
+    <End Role="TblCalisanlar" Type="Self.TblCalisanlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCalisanlarTipler">
+        <PropertyRef Name="CalisanTipID" />
+      </Principal>
+      <Dependent Role="TblCalisanlar">
+        <PropertyRef Name="CalisanTipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblCalisanlar_TblSubeler">
+    <End Role="TblSubeler" Type="Self.TblSubeler" Multiplicity="1" />
+    <End Role="TblCalisanlar" Type="Self.TblCalisanlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblSubeler">
+        <PropertyRef Name="SubeID" />
+      </Principal>
+      <Dependent Role="TblCalisanlar">
+        <PropertyRef Name="SubeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSeferler_TblCalisanlar">
+    <End Role="TblCalisanlar" Type="Self.TblCalisanlar" Multiplicity="1" />
+    <End Role="TblSeferler" Type="Self.TblSeferler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCalisanlar">
+        <PropertyRef Name="CalisanlarID" />
+      </Principal>
+      <Dependent Role="TblSeferler">
+        <PropertyRef Name="CalisanlarID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblOtobusler_TblMarkalar">
+    <End Role="TblMarkalar" Type="Self.TblMarkalar" Multiplicity="1" />
+    <End Role="TblOtobusler" Type="Self.TblOtobusler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblMarkalar">
+        <PropertyRef Name="MarkaID" />
+      </Principal>
+      <Dependent Role="TblOtobusler">
+        <PropertyRef Name="MarkaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblOtobusMasraflari_TblMasrafTipleri">
+    <End Role="TblMasrafTipleri" Type="Self.TblMasrafTipleri" Multiplicity="1" />
+    <End Role="TblOtobusMasraflari" Type="Self.TblOtobusMasraflari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblMasrafTipleri">
+        <PropertyRef Name="MasrafTipID" />
+      </Principal>
+      <Dependent Role="TblOtobusMasraflari">
+        <PropertyRef Name="MasrafTipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblOtobusMasraflari_TblOtobusler">
+    <End Role="TblOtobusler" Type="Self.TblOtobusler" Multiplicity="1" />
+    <End Role="TblOtobusMasraflari" Type="Self.TblOtobusMasraflari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblOtobusler">
+        <PropertyRef Name="OtobusID" />
+      </Principal>
+      <Dependent Role="TblOtobusMasraflari">
+        <PropertyRef Name="OtobusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSeferler_TblOtobusler">
+    <End Role="TblOtobusler" Type="Self.TblOtobusler" Multiplicity="1" />
+    <End Role="TblSeferler" Type="Self.TblSeferler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblOtobusler">
+        <PropertyRef Name="OtobusID" />
+      </Principal>
+      <Dependent Role="TblSeferler">
+        <PropertyRef Name="OtobusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSeferler_TblSehirler">
+    <End Role="TblSehirler" Type="Self.TblSehirler" Multiplicity="1" />
+    <End Role="TblSeferler" Type="Self.TblSeferler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblSehirler">
+        <PropertyRef Name="SehirID" />
+      </Principal>
+      <Dependent Role="TblSeferler">
+        <PropertyRef Name="KalkisSehirID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSeferler_TblSehirler1">
+    <End Role="TblSehirler" Type="Self.TblSehirler" Multiplicity="1" />
+    <End Role="TblSeferler" Type="Self.TblSeferler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblSehirler">
+        <PropertyRef Name="SehirID" />
+      </Principal>
+      <Dependent Role="TblSeferler">
+        <PropertyRef Name="VarisSehirID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSubeler_TblSehirler">
+    <End Role="TblSehirler" Type="Self.TblSehirler" Multiplicity="1" />
+    <End Role="TblSubeler" Type="Self.TblSubeler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblSehirler">
+        <PropertyRef Name="SehirID" />
+      </Principal>
+      <Dependent Role="TblSubeler">
+        <PropertyRef Name="SehirID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BusBookingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TblBiletlers" EntityType="Self.TblBiletler" />
+    <EntitySet Name="TblCalisanlars" EntityType="Self.TblCalisanlar" />
+    <EntitySet Name="TblCalisanlarTiplers" EntityType="Self.TblCalisanlarTipler" />
+    <EntitySet Name="TblMarkalars" EntityType="Self.TblMarkalar" />
+    <EntitySet Name="TblMasrafTipleris" EntityType="Self.TblMasrafTipleri" />
+    <EntitySet Name="TblMesajlars" EntityType="Self.TblMesajlar" />
+    <EntitySet Name="TblMusterilers" EntityType="Self.TblMusteriler" />
+    <EntitySet Name="TblOtobuslers" EntityType="Self.TblOtobusler" />
+    <EntitySet Name="TblOtobusMasraflaris" EntityType="Self.TblOtobusMasraflari" />
+    <EntitySet Name="TblSeferlers" EntityType="Self.TblSeferler" />
+    <EntitySet Name="TblSehirlers" EntityType="Self.TblSehirler" />
+    <EntitySet Name="TblSubelers" EntityType="Self.TblSubeler" />
+    <AssociationSet Name="FK_TblBiletler_TblMusteriler" Association="Self.FK_TblBiletler_TblMusteriler">
+      <End Role="TblMusteriler" EntitySet="TblMusterilers" />
+      <End Role="TblBiletler" EntitySet="TblBiletlers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblBiletler_TblSeferler" Association="Self.FK_TblBiletler_TblSeferler">
+      <End Role="TblSeferler" EntitySet="TblSeferlers" />
+      <End Role="TblBiletler" EntitySet="TblBiletlers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblCalisanlar_TblCalisanlarTipler" Association="Self.FK_TblCalisanlar_TblCalisanlarTipler">
+      <End Role="TblCalisanlarTipler" EntitySet="TblCalisanlarTiplers" />
+      <End Role="TblCalisanlar" EntitySet="TblCalisanlars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblCalisanlar_TblSubeler" Association="Self.FK_TblCalisanlar_TblSubeler">
+      <End Role="TblSubeler" EntitySet="TblSubelers" />
+      <End Role="TblCalisanlar" EntitySet="TblCalisanlars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSeferler_TblCalisanlar" Association="Self.FK_TblSeferler_TblCalisanlar">
+      <End Role="TblCalisanlar" EntitySet="TblCalisanlars" />
+      <End Role="TblSeferler" EntitySet="TblSeferlers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblOtobusler_TblMarkalar" Association="Self.FK_TblOtobusler_TblMarkalar">
+      <End Role="TblMarkalar" EntitySet="TblMarkalars" />
+      <End Role="TblOtobusler" EntitySet="TblOtobuslers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblOtobusMasraflari_TblMasrafTipleri" Association="Self.FK_TblOtobusMasraflari_TblMasrafTipleri">
+      <End Role="TblMasrafTipleri" EntitySet="TblMasrafTipleris" />
+      <End Role="TblOtobusMasraflari" EntitySet="TblOtobusMasraflaris" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblOtobusMasraflari_TblOtobusler" Association="Self.FK_TblOtobusMasraflari_TblOtobusler">
+      <End Role="TblOtobusler" EntitySet="TblOtobuslers" />
+      <End Role="TblOtobusMasraflari" EntitySet="TblOtobusMasraflaris" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSeferler_TblOtobusler" Association="Self.FK_TblSeferler_TblOtobusler">
+      <End Role="TblOtobusler" EntitySet="TblOtobuslers" />
+      <End Role="TblSeferler" EntitySet="TblSeferlers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSeferler_TblSehirler" Association="Self.FK_TblSeferler_TblSehirler">
+      <End Role="TblSehirler" EntitySet="TblSehirlers" />
+      <End Role="TblSeferler" EntitySet="TblSeferlers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSeferler_TblSehirler1" Association="Self.FK_TblSeferler_TblSehirler1">
+      <End Role="TblSehirler" EntitySet="TblSehirlers" />
+      <End Role="TblSeferler" EntitySet="TblSeferlers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSubeler_TblSehirler" Association="Self.FK_TblSubeler_TblSehirler">
+      <End Role="TblSehirler" EntitySet="TblSehirlers" />
+      <End Role="TblSubeler" EntitySet="TblSubelers" />
+    </AssociationSet>
+    <EntitySet Name="TblKullanicilars" EntityType="BusBookingModel.TblKullanicilar" />
+    <EntitySet Name="TblSepets" EntityType="BusBookingModel.TblSepet" />
+    <AssociationSet Name="FK_TblSepet_TblBiletler" Association="BusBookingModel.FK_TblSepet_TblBiletler">
+      <End Role="TblBiletler" EntitySet="TblBiletlers" />
+      <End Role="TblSepet" EntitySet="TblSepets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSepet_TblKullanicilar" Association="BusBookingModel.FK_TblSepet_TblKullanicilar">
+      <End Role="TblKullanicilar" EntitySet="TblKullanicilars" />
+      <End Role="TblSepet" EntitySet="TblSepets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSepet_TblMusteriler" Association="BusBookingModel.FK_TblSepet_TblMusteriler">
+      <End Role="TblMusteriler" EntitySet="TblMusterilers" />
+      <End Role="TblSepet" EntitySet="TblSepets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSepet_TblOtobusler" Association="BusBookingModel.FK_TblSepet_TblOtobusler">
+      <End Role="TblOtobusler" EntitySet="TblOtobuslers" />
+      <End Role="TblSepet" EntitySet="TblSepets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSepet_TblSeferler" Association="BusBookingModel.FK_TblSepet_TblSeferler">
+      <End Role="TblSeferler" EntitySet="TblSeferlers" />
+      <End Role="TblSepet" EntitySet="TblSepets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSepet_TblSehirler" Association="BusBookingModel.FK_TblSepet_TblSehirler">
+      <End Role="TblSehirler" EntitySet="TblSehirlers" />
+      <End Role="TblSepet" EntitySet="TblSepets" />
+    </AssociationSet>
+    <EntitySet Name="TblKoltuklars" EntityType="BusBookingModel.TblKoltuklar" />
+    <AssociationSet Name="FK_TblKoltuklar_TblMusteriler" Association="BusBookingModel.FK_TblKoltuklar_TblMusteriler">
+      <End Role="TblMusteriler" EntitySet="TblMusterilers" />
+      <End Role="TblKoltuklar" EntitySet="TblKoltuklars" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TblKullanicilar">
+    <Key>
+      <PropertyRef Name="KullaniciID" />
+    </Key>
+    <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciAd" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sifre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Rol" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AdSoyad" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Adres" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TblSepets" Relationship="BusBookingModel.FK_TblSepet_TblKullanicilar" FromRole="TblKullanicilar" ToRole="TblSepet" />
+  </EntityType>
+  <EntityType Name="TblSepet">
+    <Key>
+      <PropertyRef Name="SepetID" />
+    </Key>
+    <Property Name="SepetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MusteriID" Type="Int32" Nullable="false" />
+    <Property Name="BiletID" Type="Int32" Nullable="false" />
+    <Property Name="OtobusID" Type="Int32" Nullable="false" />
+    <Property Name="SeferID" Type="Int32" Nullable="false" />
+    <Property Name="SehirID" Type="Int32" Nullable="false" />
+    <Property Name="Fiyat" Type="Decimal" Nullable="false" Precision="28" Scale="2" />
+    <Property Name="ToplamFiyat" Type="Decimal" Nullable="false" Precision="28" Scale="2" />
+    <Property Name="Tarih" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Saat" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TblBiletler" Relationship="BusBookingModel.FK_TblSepet_TblBiletler" FromRole="TblSepet" ToRole="TblBiletler" />
+    <NavigationProperty Name="TblKullanicilar" Relationship="BusBookingModel.FK_TblSepet_TblKullanicilar" FromRole="TblSepet" ToRole="TblKullanicilar" />
+    <NavigationProperty Name="TblMusteriler" Relationship="BusBookingModel.FK_TblSepet_TblMusteriler" FromRole="TblSepet" ToRole="TblMusteriler" />
+    <NavigationProperty Name="TblOtobusler" Relationship="BusBookingModel.FK_TblSepet_TblOtobusler" FromRole="TblSepet" ToRole="TblOtobusler" />
+    <NavigationProperty Name="TblSeferler" Relationship="BusBookingModel.FK_TblSepet_TblSeferler" FromRole="TblSepet" ToRole="TblSeferler" />
+    <NavigationProperty Name="TblSehirler" Relationship="BusBookingModel.FK_TblSepet_TblSehirler" FromRole="TblSepet" ToRole="TblSehirler" />
+  </EntityType>
+  <Association Name="FK_TblSepet_TblBiletler">
+    <End Type="BusBookingModel.TblBiletler" Role="TblBiletler" Multiplicity="1" />
+    <End Type="BusBookingModel.TblSepet" Role="TblSepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblBiletler">
+        <PropertyRef Name="BIletID" />
+      </Principal>
+      <Dependent Role="TblSepet">
+        <PropertyRef Name="BiletID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSepet_TblKullanicilar">
+    <End Type="BusBookingModel.TblKullanicilar" Role="TblKullanicilar" Multiplicity="1" />
+    <End Type="BusBookingModel.TblSepet" Role="TblSepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblKullanicilar">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="TblSepet">
+        <PropertyRef Name="KullaniciID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSepet_TblMusteriler">
+    <End Type="BusBookingModel.TblMusteriler" Role="TblMusteriler" Multiplicity="1" />
+    <End Type="BusBookingModel.TblSepet" Role="TblSepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblMusteriler">
+        <PropertyRef Name="MusteriID" />
+      </Principal>
+      <Dependent Role="TblSepet">
+        <PropertyRef Name="MusteriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSepet_TblOtobusler">
+    <End Type="BusBookingModel.TblOtobusler" Role="TblOtobusler" Multiplicity="1" />
+    <End Type="BusBookingModel.TblSepet" Role="TblSepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblOtobusler">
+        <PropertyRef Name="OtobusID" />
+      </Principal>
+      <Dependent Role="TblSepet">
+        <PropertyRef Name="OtobusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSepet_TblSeferler">
+    <End Type="BusBookingModel.TblSeferler" Role="TblSeferler" Multiplicity="1" />
+    <End Type="BusBookingModel.TblSepet" Role="TblSepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblSeferler">
+        <PropertyRef Name="SeferID" />
+      </Principal>
+      <Dependent Role="TblSepet">
+        <PropertyRef Name="SeferID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSepet_TblSehirler">
+    <End Type="BusBookingModel.TblSehirler" Role="TblSehirler" Multiplicity="1" />
+    <End Type="BusBookingModel.TblSepet" Role="TblSepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblSehirler">
+        <PropertyRef Name="SehirID" />
+      </Principal>
+      <Dependent Role="TblSepet">
+        <PropertyRef Name="SehirID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TblKoltuklar">
+    <Key>
+      <PropertyRef Name="KoltukID" />
+    </Key>
+    <Property Name="KoltukID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KoltukTuru" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="KoltukNo" Type="Byte" Nullable="false" />
+    <Property Name="MusteriID" Type="Int32" />
+    <NavigationProperty Name="TblMusteriler" Relationship="BusBookingModel.FK_TblKoltuklar_TblMusteriler" FromRole="TblKoltuklar" ToRole="TblMusteriler" />
+  </EntityType>
+  <Association Name="FK_TblKoltuklar_TblMusteriler">
+    <End Type="BusBookingModel.TblMusteriler" Role="TblMusteriler" Multiplicity="0..1" />
+    <End Type="BusBookingModel.TblKoltuklar" Role="TblKoltuklar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblMusteriler">
+        <PropertyRef Name="MusteriID" />
+      </Principal>
+      <Dependent Role="TblKoltuklar">
+        <PropertyRef Name="MusteriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

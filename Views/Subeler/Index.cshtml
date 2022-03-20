@@ -1,0 +1,31 @@
+﻿@using Bus.Models.Entity
+@model List<TblSubeler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Sube ID</th>
+        <th>Sehir ADI</th>
+        <th>Sube ADI</th>
+        <th>Guncelle</th>
+        <th>Sil</th>
+    </tr>
+    <tbody>
+        @foreach (var sb in Model)
+        {
+        <tr>
+            <th>@sb.SubeID</th>
+            <th>@Html.DisplayFor(x => sb.TblSehirler.SehirAd)</th>
+            <td>@sb.SubeAd</td>
+            <td><a href="/Subeler/SubelerGetir/@sb.SubeID" class="btn btn-success">Güncelle</a></td>
+            @*<td><a href="/Subeler/Sil/@sb.SubeID" class="btn btn-danger">Sil</a></td>*@
+            <td>@Html.ActionLink("Sil ", "Sil", new { id = sb.SubeID}, new { @class = "btn btn-danger", onclick = "return confirm('Silmek Istediginizden Emin misiniz ?')" })</td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+<a href="/Subeler/YeniSubelerEkle/" class="btn btn-primary"> YENI ŞUBE EKLE</a>

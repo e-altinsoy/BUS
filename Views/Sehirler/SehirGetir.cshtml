@@ -1,0 +1,23 @@
+﻿@model Bus.Models.Entity.TblSehirler
+@{
+    ViewBag.Title = "SehirGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>SehirGetir</h2>
+
+@using (Html.BeginForm("Guncelle","Sehirler",FormMethod.Post))
+
+{
+<div class="form-group">
+    @Html.LabelFor(m => m.SehirID)
+    @Html.TextBoxFor(m => m.SehirID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.SehirAd)
+    @Html.TextBoxFor(m => m.SehirAd, new { @class = "form-control" })
+
+</div>
+<div>
+    <button class="btn btn-warning"> Sehiri Guncelle</button>
+</div>
+}

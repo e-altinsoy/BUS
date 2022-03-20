@@ -1,0 +1,27 @@
+﻿@model Bus.Models.Entity.TblSepet
+@{
+    ViewBag.Title = "SepetGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SepetGetir</h2>
+
+@using (Html.BeginForm("Guncelle", "Sepet", FormMethod.Post))
+
+{
+<div class="form-group">
+    @Html.LabelFor(m => m.TblMusteriler.TC)
+    @Html.TextBoxFor(m => m.TblMusteriler.TC, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.TblMusteriler.Ad)
+    @Html.TextBoxFor(m => m.TblMusteriler.Ad, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.TblMusteriler.Soyad)
+    @Html.TextBoxFor(m => m.TblMusteriler.Soyad, new { @class = "form-control" })
+
+
+</div>
+    <div>
+        <button class="btn btn-warning"> Guncelle</button>
+    </div>
+}

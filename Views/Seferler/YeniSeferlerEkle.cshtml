@@ -1,0 +1,54 @@
+﻿@model Bus.Models.Entity.TblSeferler
+@{
+    ViewBag.Title = "YeniSeferlerEkle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<form class="form-group" method="post">
+    <div>
+        <lable>Nereden</lable>
+        @Html.TextBoxFor(m => m.TblSehirler.SehirAd, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Nereye</lable>
+        @Html.TextBoxFor(m => m.TblSehirler.SehirAd, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Plaka</lable>
+        @Html.TextBoxFor(m => m.TblOtobusler.Plaka, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>ADI</lable>
+        @Html.TextBoxFor(m => m.TblCalisanlar.Ad, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Kalkis Zamani</lable>
+        @Html.TextBoxFor(m => m.KalkisZamani, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Varis Zamani</lable>
+        @Html.TextBoxFor(m => m.VarisZamani, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Bilet Tutari</lable>
+        @Html.TextBoxFor(m => m.BiletTutari, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:20px">
+        <button class="btn btn-info" id="btn1">Sefer Ekle</button>
+    </div>
+    <script>
+        $('#btn1').click(function () {
+            alert('Musteri Ekleme Islemi Yapildi...!');
+        });
+    </script>
+</form>
+
+

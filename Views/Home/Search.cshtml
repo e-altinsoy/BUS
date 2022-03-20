@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Bus.Models.Entity.TblSeferler>
+
+@{
+    ViewBag.Title = "Search";
+
+
+}
+
+<table class="table">
+    <thead style="background-color:darkturquoise;">
+        <tr>
+            <th>
+                @Html.Label("Kalkis Zamani")
+                @*@Html.DisplayNameFor(model => model.KalkisZamani)*@
+            </th>
+            <th>
+                @Html.Label("Varis Zamani")
+                @*@Html.DisplayNameFor(model => model.VarisZamani)*@
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.TblCalisanlar.Ad)
+                </th>*@
+            @*<th>
+                @Html.DisplayNameFor(model => model.TblOtobusler.Plaka)
+            </th>*@
+            <th>
+                @Html.Label("Nereden")
+                @*@Html.DisplayNameFor(model => model.TblSehirler.SehirAd)*@
+            </th>
+            <th>
+                @Html.Label("Nereye")
+                @*@Html.DisplayNameFor(model => model.TblSehirler1.SehirAd)*@
+            </th>
+            <th>
+                @Html.Label("Fiyat")
+                @*@Html.DisplayNameFor(model => model.BiletTutari)*@
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>
+                @Html.DisplayFor(modelItem => item.KalkisZamani)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.VarisZamani)
+            </th>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.TblCalisanlar.Ad)
+                </td>*@
+            @*<td>
+                @Html.DisplayFor(modelItem => item.TblOtobusler.Plaka)
+            </td>*@
+            <th>
+                @Html.DisplayFor(modelItem => item.TblSehirler.SehirAd)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.TblSehirler1.SehirAd)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.BiletTutari)
+            </th>
+
+            <th>
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.SeferID }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.SeferID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.SeferID }) |*@
+                @*@Html.ActionLink("Seç", "Seç", "Seç", new { id = item.SeferID }, new { @class = "btn btn-success" })*@
+                    
+                <a href="/Musteriler/YeniMusterilerEkle" class="btn btn-success">Seç</a>
+            </th>
+        </tr>
+    }
+
+</table>

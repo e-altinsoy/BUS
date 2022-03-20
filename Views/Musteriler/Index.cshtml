@@ -1,0 +1,43 @@
+﻿@using Bus.Models.Entity
+@model List<TblMusteriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Musteri ID</th>
+        <th>T.C. No.</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Email</th>
+        <th>Telefon</th>
+        <th>Cinsiyet</th>
+        <th>Dogum Tarihi</th>
+        <th>Adres</th>
+        <th>Guncelle</th>
+        <th>Sil</th>
+        @*<th>Alert</th>*@
+    </tr>
+    <tbody>
+        @foreach (var mst in Model)
+        {
+            <tr>
+                <th>@mst.MusteriID</th>
+                <th>@mst.TC</th>
+                <td>@mst.Ad</td>
+                <td>@mst.Soyad</td>
+                <td>@mst.Email</td>
+                <td>@mst.Telefon</td>
+                <td>@mst.Cinsiyet</td>
+                <td>@mst.DogumTarihi</td>
+                <td>@mst.Adress</td>
+                <td><a href="/Musteriler/MusterilerGetir/@mst.MusteriID" class="btn btn-success">Güncelle</a></td>
+                @*<td><a href="/Musteriler/Sil/@mst.MusteriID" class="btn btn-danger">Sil</a></td>*@
+                <td>@Html.ActionLink("Sil ", "Sil", new { id=mst.MusteriID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek Istediginizden Emin misiniz ?')" })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Musteriler/YeniMusterilerEkle/" class="btn btn-primary"> YENI MÜŞTERİ EKLE</a>

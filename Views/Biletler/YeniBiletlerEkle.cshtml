@@ -1,0 +1,75 @@
+﻿@model Bus.Models.Entity.TblBiletler
+@{
+    ViewBag.Title = "YeniBiletlerEkle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<form class="form-group" method="post">
+    <div>
+            <lable>bilet id</lable>
+            @Html.TextBoxFor(m => m.BIletID, new { @class = "form-control" })
+
+        </div>
+        <div>
+            <lable>musteri id:</lable>
+            @Html.TextBoxFor(m => m.MusteriID, new { @class = "form-control" })
+
+        </div>
+    <div>
+        <lable>sefer id</lable>
+        @Html.TextBoxFor(m => m.SeferID, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Yolcu T.C. No:</lable>
+        @Html.TextBoxFor(m => m.TC, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Yolcu Ad</lable>
+        @Html.TextBoxFor(m => m.YolcuAd, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Yolcu Soyad</lable>
+        @Html.TextBoxFor(m => m.YolcuSoyad, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Yolcu Cinsiyet</lable>
+        @*@Html.TextBoxFor(m => m.YolcuCinsiyet, new { @class = "form-control" })*@
+        @Html.DropDownListFor(m => m.YolcuCinsiyet, new List<SelectListItem>
+            { new SelectListItem { Text="Erkek", Value="true" },
+        new SelectListItem{Text="Kadin", Value="false"} }, "Lutfen Cinsiyetinizi Seciniz",
+        new { @class = "form-control" })
+
+
+
+    </div>
+    <div>
+        <lable>Koltuk No.</lable>
+        @Html.TextBoxFor(m => m.KoltukNo, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Ucret</lable>
+        @Html.TextBoxFor(m => m.Ucret, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Islem Zamani</lable>
+        @Html.TextBoxFor(m => m.IslemZamani, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:20px">
+        <button class="btn btn-info" id="btn1">Biletlere Ekle</button>
+    </div>
+    <script>
+        $('#btn1').click(function () {
+            alert('Musteri Ekleme Islemi Yapildi...!');
+        });
+    </script>
+</form>
+
+

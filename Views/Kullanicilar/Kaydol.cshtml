@@ -1,0 +1,66 @@
+﻿
+@model Bus.Models.Entity.TblKullanicilar
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Kaydol</title>
+
+    <link href="~/Login_v2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/styledanger.css" rel="stylesheet" />
+</head>
+<body class="container col-md-7">
+    <br />
+    @using (Html.BeginForm("Kaydol", "Kullanicilar", FormMethod.Post))
+    {
+        <div style="height:50px; background-color:blue; border-radius:5px; color:white; text-align:center">
+            <p style="margin-top:auto; margin-bottom:auto; font-size:30px">Kullanıcı Kayıt Sayfası</p>
+        </div>
+
+        <div style="margin-top:20px;">
+            @Html.LabelFor(x=>x.KullaniciAd)
+            @Html.TextBoxFor(x => x.KullaniciAd, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.KullaniciAd, null, new { @class = "text-danger" })
+        </div>
+        <div style="margin-top:20px;">
+            @Html.LabelFor(x => x.Sifre)
+            @Html.PasswordFor(x => x.Sifre, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Sifre, null, new { @class = "text-danger" })
+        </div>
+        <div style="margin-top:20px;">
+            @Html.LabelFor(x => x.AdSoyad)
+            @Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.AdSoyad, null, new { @class = "text-danger" })
+        </div>
+        <div style="margin-top:20px;">
+            @Html.LabelFor(x => x.Telefon)
+            @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Telefon, null, new { @class = "text-danger" })
+        </div>
+        <div style="margin-top:20px;">
+            @Html.LabelFor(x => x.Adres)
+            @Html.TextAreaFor(x => x.Adres, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Adres, null, new { @class = "text-danger" })
+        </div>
+
+        <div style="margin-top:20px;">
+            @Html.LabelFor(x => x.Email)
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
+        </div>
+        <div style="margin-top:20px;">
+            <button class="btn btn-primary form-control">Kaydol</button>
+        </div>
+    }
+</body>
+</html>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,29 @@
+﻿@using Bus.Models.Entity
+@model List<TblMasrafTipleri>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Masaraf Tip ID</th>
+        <th>Masaraf ADI</th>
+        <th>Guncelle</th>
+        <th>Sil</th>
+    </tr>
+    <tbody>
+        @foreach (var mtp in Model)
+        {
+        <tr>
+            <th>@mtp.MasrafTipID</th>
+            <td>@mtp.MasrafAd</td>
+            <td><a href="/MasrafTipleri/MasrafTipleriGetir/@mtp.MasrafTipID" class="btn btn-success">Güncelle</a></td>
+            @*<td><a href="/MasrafTipleri/Sil/@mtp.MasrafTipID" class="btn btn-danger">Sil</a></td>*@
+            <td>@Html.ActionLink("Sil ", "Sil", new { id = mtp.MasrafTipID}, new { @class = "btn btn-danger", onclick = "return confirm('Silmek Istediginizden Emin misiniz ?')" })</td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+<a href="/MasrafTipleri/YeniMasrafTipleriEkle/" class="btn btn-primary"> YENI MASRAF TİPİ EKLE</a>

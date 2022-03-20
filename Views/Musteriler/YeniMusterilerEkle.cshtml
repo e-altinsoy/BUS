@@ -1,0 +1,64 @@
+﻿@model Bus.Models.Entity.TblMusteriler
+@{
+    ViewBag.Title = "YeniMusterilerEkle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<form class="form-group" method="post">
+
+    <div>
+        <lable>Musteri T.C. No:</lable>
+        @Html.TextBoxFor(m => m.TC, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Ad</lable>
+        @Html.TextBoxFor(m => m.Ad, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Soyad</lable>
+        @Html.TextBoxFor(m => m.Soyad, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Email</lable>
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Telefon</lable>
+        @Html.TextBoxFor(m => m.Telefon, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Cinsiyet</lable>
+        @*@Html.TextBoxFor(m => m.Cinsiyet, new { @class = "form-control" })*@
+        @Html.DropDownListFor(m => m.Cinsiyet, new List<SelectListItem>
+           { new SelectListItem { Text="Erkek", Value="true" },
+       new SelectListItem{Text="Kadin", Value="false"} }, "Lutfen Cinsiyetinizi Seciniz",
+       new { @class = "form-control" })
+
+
+    </div>
+    <div>
+        <lable>D.Tarihi</lable>
+        @Html.TextBoxFor(m => m.DogumTarihi, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Adres</lable>
+        @Html.TextBoxFor(m => m.Adress, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:20px">
+        <button class="btn btn-info" id="btn1">MUsteriyi Ekle</button>
+    </div>
+    <script>
+        $('#btn1').click(function () {
+            alert('Musteri Ekleme Islemi Yapildi...!');
+        });
+    </script>
+</form>
+

@@ -1,0 +1,40 @@
+﻿@model Bus.Models.Entity.TblSeferler
+@{
+    ViewBag.Title = "SeferlerGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>SeferlerGetir</h2>
+
+@using (Html.BeginForm("Guncelle", "Seferler", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(m => m.SeferID)
+    @Html.TextBoxFor(m => m.SeferID, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.TblSehirler.SehirAd,"Kalkis Sehir")
+    @Html.TextBoxFor(m => m.TblSehirler.SehirAd, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.TblSehirler.SehirAd,"Varis Sehir")
+    @Html.TextBoxFor(m => m.TblSehirler.SehirAd, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.TblOtobusler.Plaka,"Plaka")
+    @Html.TextBoxFor(m => m.TblOtobusler.Plaka, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.TblCalisanlar.Ad,"Calisan Ad")
+    @Html.TextBoxFor(m => m.TblCalisanlar.Ad, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.KalkisZamani)
+    @Html.TextBoxFor(m => m.KalkisZamani, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.VarisZamani)
+    @Html.TextBoxFor(m => m.VarisZamani, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(m => m.BiletTutari)
+    @Html.TextBoxFor(m => m.BiletTutari, new { @class = "form-control" })
+    <br />
+</div>
+    <div>
+        <button class="btn btn-warning"> Seferleri Guncelle</button>
+    </div>
+}

@@ -1,0 +1,32 @@
+﻿@model Bus.Models.Entity.TblOtobusMasraflari
+@{
+    ViewBag.Title = "YeniOtobusMasrafEkle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<form class="form-group" method="post">
+    <div>
+        <lable>Otobus Plaka</lable>
+        @Html.TextBoxFor(m => m.TblOtobusler.Plaka, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Masraf Ad</lable>
+        @Html.TextBoxFor(m => m.TblMasrafTipleri.MasrafAd, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Tutar</lable>
+        @Html.TextBoxFor(m => m.Tutar, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:20px">
+        <button class="btn btn-info" id="btn1">Otobuse MAsrafi Ekle</button>
+    </div>
+    <script>
+        $('#btn1').click(function () {
+            alert('Musteri Ekleme Islemi Yapildi...!');
+        });
+    </script>
+</form>

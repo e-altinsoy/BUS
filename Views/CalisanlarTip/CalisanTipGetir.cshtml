@@ -1,0 +1,23 @@
+﻿@model Bus.Models.Entity.TblCalisanlarTipler
+@{
+    ViewBag.Title = "CalisanTipGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>CalisanTipGetir</h2>
+
+@using (Html.BeginForm("Guncelle", "CalisanlarTip", FormMethod.Post))
+
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.CalisanTipID)
+        @Html.TextBoxFor(m => m.CalisanTipID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.CalisanTipAd)
+        @Html.TextBoxFor(m => m.CalisanTipAd, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <button class="btn btn-warning"> Calisan Tip Guncelle</button>
+    </div>
+}

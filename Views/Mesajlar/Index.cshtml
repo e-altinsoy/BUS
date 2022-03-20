@@ -1,0 +1,36 @@
+﻿@using Bus.Models.Entity
+@model List<TblMesajlar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Mesaj ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Email</th>
+        <th>Mesaj</th>
+        <th>Guncelle</th>
+        <th>Sil</th>
+    </tr>
+    <tbody>
+        @foreach (var msj in Model)
+        {
+        <tr>
+            <th>@msj.MesajID</th>
+            <td>@msj.Ad</td>
+            <td>@msj.Soyad</td>
+            <td>@msj.Email</td>
+            <td>@msj.Mesaj</td>
+            <td><a href="/Mesajlar/MesajlariGetir/@msj.MesajID" class="btn btn-success">Güncelle</a></td>
+            @*<td><a href="/Mesajlar/Sil/@msj.MesajID" class="btn btn-danger">Sil</a></td>*@
+            <td>@Html.ActionLink("Sil ", "Sil", new { id = msj.MesajID}, new { @class = "btn btn-danger", onclick = "return confirm('Silmek Istediginizden Emin misiniz ?')" })</td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Mesajlar/YeniMesajlarEkle/" class="btn btn-primary"> YENI MESAJ EKLE</a>

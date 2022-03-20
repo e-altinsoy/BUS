@@ -1,0 +1,31 @@
+﻿@model Bus.Models.Entity.TblSubeler
+@{
+    ViewBag.Title = "YeniSubelerEkle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<form class="form-group" method="post">
+    <div>
+        <lable>Sehir Adı</lable>
+        @* <input type="text" class="form-control" name="TblSubeler" />*@
+        @*   @Html.DropDownListFor(m => m.TblSehirler.SehirAd,(List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+        *@
+        @Html.TextBoxFor(m => m.TblSehirler.SehirAd, new { @class = "form-control" })
+    </div>
+    <div>
+        <lable>Sube Adı</lable>
+        @* <input type="text" class="form-control" name="TblSubeler" />*@
+        @Html.TextBoxFor(m => m.SubeAd, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:20px">
+        <button class="btn btn-info" id="btn1">Sube Ekle</button>
+    </div>
+    <script>
+        $('#btn1').click(function () {
+            alert('Musteri Ekleme Islemi Yapildi...!');
+        });
+    </script>
+</form>
+

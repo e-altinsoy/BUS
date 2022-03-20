@@ -1,0 +1,54 @@
+﻿@model Bus.Models.Entity.TblCalisanlar
+@{
+    ViewBag.Title = "YeniCalisanlarEkle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<form class="form-group" method="post">
+    <div>
+        <lable>Calisanin Tip ADI</lable>
+        @*<input type="text" class="form-control" name="TblCalisanlar" />*@
+        @Html.TextBoxFor(m => m.TblCalisanlarTipler.CalisanTipAd, new { @class = "form-control" })
+    </div>
+    <div>
+        <lable>Sube ADI</lable>
+        @*<input type="text" class="form-control" name="TblCalisanlar" />*@
+        @Html.TextBoxFor(m => m.TblSubeler.SubeAd, new { @class = "form-control" })
+    </div>
+    <div>
+        <lable>ADI</lable>
+        @*<input type="text" class="form-control" name="TblCalisanlar" />*@
+        @Html.TextBoxFor(m => m.Ad, new { @class = "form-control" })
+    </div>
+    <div>
+        <lable>Soyad</lable>
+        @*<input type="text" class="form-control" name="TblCalisanlar" />*@
+        @Html.TextBoxFor(m => m.Soyad, new { @class = "form-control" })
+    </div>
+    <div>
+        <lable>Email</lable>
+        @*<input type="text" class="form-control" name="TblCalisanlar" />*@
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+    </div>
+    <div>
+        <lable>Telefon</lable>
+        @*<input type="text" class="form-control" name="TblCalisanlar" />*@
+        @Html.TextBoxFor(m => m.Telefon, new { @class = "form-control" })
+    </div>
+    <div>
+        <lable>Adres</lable>
+        @*<input type="text" class="form-control" name="TblCalisanlar" />*@
+        @Html.TextBoxFor(m => m.Adress, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:20px">
+        <button class="btn btn-info" id="btn1">Calisanlara Ekle</button>
+    </div>
+    <script>
+        $('#btn1').click(function () {
+            alert('Musteri Ekleme Islemi Yapildi...!');
+        });
+    </script>
+</form>
+
+

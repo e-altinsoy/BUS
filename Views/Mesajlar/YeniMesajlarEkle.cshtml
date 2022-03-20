@@ -1,0 +1,33 @@
+﻿@model Bus.Models.Entity.TblMesajlar
+@{
+    ViewBag.Title = "YeniMesajlarEkle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <lable>Ad</lable>
+        @Html.TextBoxFor(m => m.Ad, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Soyad</lable>
+        @Html.TextBoxFor(m => m.Soyad, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Email</lable>
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <lable>Mesaj</lable>
+        @Html.TextBoxFor(m => m.Mesaj, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:20px">
+        <button class="btn btn-info">Mesaji Ekle</button>
+    </div>
+</form>
+
+

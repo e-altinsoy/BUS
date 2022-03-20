@@ -1,0 +1,30 @@
+﻿@using Bus.Models.Entity
+@model List<TblMarkalar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table table-bordered">
+    <tr>
+        <th>Marka ID</th>
+        <th>Marka ADI</th>
+        <th>Guncelle</th>
+        <th>Sil</th>
+    </tr>
+    <tbody>
+        @foreach (var mrk in Model)
+        {
+        <tr>
+            <th>@mrk.MarkaID</th>
+            <td>@mrk.MarkaAd</td>
+            <td><a href="/Markalar/MarkalarGetir/@mrk.MarkaID" class="btn btn-success">Güncelle</a></td>
+            @*<td><a href="/Markalar/Sil/@mrk.MarkaID" class="btn btn-danger">Sil</a></td>*@
+            <td>@Html.ActionLink("Sil ", "Sil", new { id = mrk.MarkaID}, new { @class = "btn btn-danger", onclick = "return confirm('Silmek Istediginizden Emin misiniz ?')" })</td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Markalar/YeniMarkalarEkle/" class="btn btn-primary"> YENI MARKALAR EKLE</a>

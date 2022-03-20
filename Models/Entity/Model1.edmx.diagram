@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="feb8914f1847445982a340bf5eb9aeae" Name="Diagram1">
+        <EntityTypeShape EntityType="BusBookingModel.sysdiagram" Width="1.5" PointX="7.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusBookingModel.TblBiletler" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusBookingModel.TblCalisanlar" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusBookingModel.TblCalisanlarTipler" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusBookingModel.TblMarkalar" Width="1.5" PointX="1.5" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusBookingModel.TblMasrafTipleri" Width="1.5" PointX="3.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusBookingModel.TblMesajlar" Width="1.5" PointX="7.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusBookingModel.TblMusteriler" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusBookingModel.TblOtobusler" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusBookingModel.TblOtobusMasraflari" Width="1.5" PointX="6" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusBookingModel.TblSeferler" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusBookingModel.TblSehirler" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BusBookingModel.TblSubeler" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <AssociationConnector Association="BusBookingModel.FK_TblBiletler_TblMusteriler" ManuallyRouted="false" />
+        <AssociationConnector Association="BusBookingModel.FK_TblBiletler_TblSeferler" ManuallyRouted="false" />
+        <AssociationConnector Association="BusBookingModel.FK_TblCalisanlar_TblCalisanlarTipler" ManuallyRouted="false" />
+        <AssociationConnector Association="BusBookingModel.FK_TblCalisanlar_TblSubeler" ManuallyRouted="false" />
+        <AssociationConnector Association="BusBookingModel.FK_TblSeferler_TblCalisanlar" ManuallyRouted="false" />
+        <AssociationConnector Association="BusBookingModel.FK_TblOtobusler_TblMarkalar" ManuallyRouted="false" />
+        <AssociationConnector Association="BusBookingModel.FK_TblOtobusMasraflari_TblMasrafTipleri" ManuallyRouted="false" />
+        <AssociationConnector Association="BusBookingModel.FK_TblOtobusMasraflari_TblOtobusler" ManuallyRouted="false" />
+        <AssociationConnector Association="BusBookingModel.FK_TblSeferler_TblOtobusler" ManuallyRouted="false" />
+        <AssociationConnector Association="BusBookingModel.FK_TblSeferler_TblSehirler" ManuallyRouted="false" />
+        <AssociationConnector Association="BusBookingModel.FK_TblSeferler_TblSehirler1" ManuallyRouted="false" />
+        <AssociationConnector Association="BusBookingModel.FK_TblSubeler_TblSehirler" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BusBookingModel.TblKullanicilar" Width="1.5" PointX="8.375" PointY="0.875" />
+        <EntityTypeShape EntityType="BusBookingModel.TblSepet" Width="1.5" PointX="10.625" PointY="2.375" />
+        <AssociationConnector Association="BusBookingModel.FK_TblSepet_TblBiletler" />
+        <AssociationConnector Association="BusBookingModel.FK_TblSepet_TblKullanicilar" />
+        <AssociationConnector Association="BusBookingModel.FK_TblSepet_TblMusteriler" />
+        <AssociationConnector Association="BusBookingModel.FK_TblSepet_TblOtobusler" />
+        <AssociationConnector Association="BusBookingModel.FK_TblSepet_TblSeferler" />
+        <AssociationConnector Association="BusBookingModel.FK_TblSepet_TblSehirler" />
+        <EntityTypeShape EntityType="BusBookingModel.TblKoltuklar" Width="1.5" PointX="5.25" PointY="18.375" />
+        <AssociationConnector Association="BusBookingModel.FK_TblKoltuklar_TblMusteriler" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

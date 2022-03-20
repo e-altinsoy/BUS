@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BusBookingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TblBiletler">
+    <Key>
+      <PropertyRef Name="BIletID" />
+    </Key>
+    <Property Name="BIletID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MusteriID" Type="int" Nullable="false" />
+    <Property Name="SeferID" Type="int" Nullable="false" />
+    <Property Name="TC" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="YolcuAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="YolcuSoyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="YolcuCinsiyet" Type="bit" Nullable="false" />
+    <Property Name="KoltukNo" Type="tinyint" Nullable="false" />
+    <Property Name="Ucret" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="IslemZamani" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblCalisanlar">
+    <Key>
+      <PropertyRef Name="CalisanlarID" />
+    </Key>
+    <Property Name="CalisanlarID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CalisanTipID" Type="int" Nullable="false" />
+    <Property Name="SubeID" Type="int" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="68" Nullable="false" />
+    <Property Name="Telefon" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="Adress" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblCalisanlarTipler">
+    <Key>
+      <PropertyRef Name="CalisanTipID" />
+    </Key>
+    <Property Name="CalisanTipID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CalisanTipAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblKoltuklar">
+    <Key>
+      <PropertyRef Name="KoltukID" />
+    </Key>
+    <Property Name="KoltukID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KoltukTuru" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="KoltukNo" Type="tinyint" Nullable="false" />
+    <Property Name="MusteriID" Type="int" />
+  </EntityType>
+  <EntityType Name="TblKullanicilar">
+    <Key>
+      <PropertyRef Name="KullaniciID" />
+    </Key>
+    <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KullaniciAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Sifre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Rol" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdSoyad" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Telefon" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblMarkalar">
+    <Key>
+      <PropertyRef Name="MarkaID" />
+    </Key>
+    <Property Name="MarkaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MarkaAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblMasrafTipleri">
+    <Key>
+      <PropertyRef Name="MasrafTipID" />
+    </Key>
+    <Property Name="MasrafTipID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MasrafAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblMesajlar">
+    <Key>
+      <PropertyRef Name="MesajID" />
+    </Key>
+    <Property Name="MesajID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="68" Nullable="false" />
+    <Property Name="Mesaj" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblMusteriler">
+    <Key>
+      <PropertyRef Name="MusteriID" />
+    </Key>
+    <Property Name="MusteriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TC" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="68" Nullable="false" />
+    <Property Name="Telefon" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="Cinsiyet" Type="bit" Nullable="false" />
+    <Property Name="DogumTarihi" Type="date" Nullable="false" />
+    <Property Name="Adress" Type="nvarchar" MaxLength="350" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblOtobusler">
+    <Key>
+      <PropertyRef Name="OtobusID" />
+    </Key>
+    <Property Name="OtobusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Plaka" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="KoltukSayisi" Type="tinyint" Nullable="false" />
+    <Property Name="MarkaID" Type="int" Nullable="false" />
+    <Property Name="AktifMi" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblOtobusMasraflari">
+    <Key>
+      <PropertyRef Name="OtobusMasrafID" />
+    </Key>
+    <Property Name="OtobusMasrafID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OtobusID" Type="int" Nullable="false" />
+    <Property Name="MasrafTipID" Type="int" Nullable="false" />
+    <Property Name="Tutar" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblSeferler">
+    <Key>
+      <PropertyRef Name="SeferID" />
+    </Key>
+    <Property Name="SeferID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KalkisSehirID" Type="int" Nullable="false" />
+    <Property Name="VarisSehirID" Type="int" Nullable="false" />
+    <Property Name="OtobusID" Type="int" Nullable="false" />
+    <Property Name="CalisanlarID" Type="int" Nullable="false" />
+    <Property Name="KalkisZamani" Type="datetime" Nullable="false" />
+    <Property Name="VarisZamani" Type="datetime" Nullable="false" />
+    <Property Name="BiletTutari" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblSehirler">
+    <Key>
+      <PropertyRef Name="SehirID" />
+    </Key>
+    <Property Name="SehirID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SehirAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblSepet">
+    <Key>
+      <PropertyRef Name="SepetID" />
+    </Key>
+    <Property Name="SepetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MusteriID" Type="int" Nullable="false" />
+    <Property Name="BiletID" Type="int" Nullable="false" />
+    <Property Name="OtobusID" Type="int" Nullable="false" />
+    <Property Name="SeferID" Type="int" Nullable="false" />
+    <Property Name="SehirID" Type="int" Nullable="false" />
+    <Property Name="Fiyat" Type="decimal" Precision="28" Scale="2" Nullable="false" />
+    <Property Name="ToplamFiyat" Type="decimal" Precision="28" Scale="2" Nullable="false" />
+    <Property Name="Tarih" Type="date" Nullable="false" />
+    <Property Name="Saat" Type="time" Precision="7" Nullable="false" />
+    <Property Name="KullaniciID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblSubeler">
+    <Key>
+      <PropertyRef Name="SubeID" />
+    </Key>
+    <Property Name="SubeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SehirID" Type="int" Nullable="false" />
+    <Property Name="SubeAd" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_TblBiletler_TblMusteriler">
+    <End Role="TblMusteriler" Type="Self.TblMusteriler" Multiplicity="1" />
+    <End Role="TblBiletler" Type="Self.TblBiletler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblMusteriler">
+        <PropertyRef Name="MusteriID" />
+      </Principal>
+      <Dependent Role="TblBiletler">
+        <PropertyRef Name="MusteriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblBiletler_TblSeferler">
+    <End Role="TblSeferler" Type="Self.TblSeferler" Multiplicity="1" />
+    <End Role="TblBiletler" Type="Self.TblBiletler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblSeferler">
+        <PropertyRef Name="SeferID" />
+      </Principal>
+      <Dependent Role="TblBiletler">
+        <PropertyRef Name="SeferID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblCalisanlar_TblCalisanlarTipler">
+    <End Role="TblCalisanlarTipler" Type="Self.TblCalisanlarTipler" Multiplicity="1" />
+    <End Role="TblCalisanlar" Type="Self.TblCalisanlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCalisanlarTipler">
+        <PropertyRef Name="CalisanTipID" />
+      </Principal>
+      <Dependent Role="TblCalisanlar">
+        <PropertyRef Name="CalisanTipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblCalisanlar_TblSubeler">
+    <End Role="TblSubeler" Type="Self.TblSubeler" Multiplicity="1" />
+    <End Role="TblCalisanlar" Type="Self.TblCalisanlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblSubeler">
+        <PropertyRef Name="SubeID" />
+      </Principal>
+      <Dependent Role="TblCalisanlar">
+        <PropertyRef Name="SubeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblKoltuklar_TblMusteriler">
+    <End Role="TblMusteriler" Type="Self.TblMusteriler" Multiplicity="0..1" />
+    <End Role="TblKoltuklar" Type="Self.TblKoltuklar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblMusteriler">
+        <PropertyRef Name="MusteriID" />
+      </Principal>
+      <Dependent Role="TblKoltuklar">
+        <PropertyRef Name="MusteriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblOtobusler_TblMarkalar">
+    <End Role="TblMarkalar" Type="Self.TblMarkalar" Multiplicity="1" />
+    <End Role="TblOtobusler" Type="Self.TblOtobusler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblMarkalar">
+        <PropertyRef Name="MarkaID" />
+      </Principal>
+      <Dependent Role="TblOtobusler">
+        <PropertyRef Name="MarkaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblOtobusMasraflari_TblMasrafTipleri">
+    <End Role="TblMasrafTipleri" Type="Self.TblMasrafTipleri" Multiplicity="1" />
+    <End Role="TblOtobusMasraflari" Type="Self.TblOtobusMasraflari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblMasrafTipleri">
+        <PropertyRef Name="MasrafTipID" />
+      </Principal>
+      <Dependent Role="TblOtobusMasraflari">
+        <PropertyRef Name="MasrafTipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblOtobusMasraflari_TblOtobusler">
+    <End Role="TblOtobusler" Type="Self.TblOtobusler" Multiplicity="1" />
+    <End Role="TblOtobusMasraflari" Type="Self.TblOtobusMasraflari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblOtobusler">
+        <PropertyRef Name="OtobusID" />
+      </Principal>
+      <Dependent Role="TblOtobusMasraflari">
+        <PropertyRef Name="OtobusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSeferler_TblCalisanlar">
+    <End Role="TblCalisanlar" Type="Self.TblCalisanlar" Multiplicity="1" />
+    <End Role="TblSeferler" Type="Self.TblSeferler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCalisanlar">
+        <PropertyRef Name="CalisanlarID" />
+      </Principal>
+      <Dependent Role="TblSeferler">
+        <PropertyRef Name="CalisanlarID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSeferler_TblOtobusler">
+    <End Role="TblOtobusler" Type="Self.TblOtobusler" Multiplicity="1" />
+    <End Role="TblSeferler" Type="Self.TblSeferler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblOtobusler">
+        <PropertyRef Name="OtobusID" />
+      </Principal>
+      <Dependent Role="TblSeferler">
+        <PropertyRef Name="OtobusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSeferler_TblSehirler">
+    <End Role="TblSehirler" Type="Self.TblSehirler" Multiplicity="1" />
+    <End Role="TblSeferler" Type="Self.TblSeferler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblSehirler">
+        <PropertyRef Name="SehirID" />
+      </Principal>
+      <Dependent Role="TblSeferler">
+        <PropertyRef Name="KalkisSehirID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSeferler_TblSehirler1">
+    <End Role="TblSehirler" Type="Self.TblSehirler" Multiplicity="1" />
+    <End Role="TblSeferler" Type="Self.TblSeferler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblSehirler">
+        <PropertyRef Name="SehirID" />
+      </Principal>
+      <Dependent Role="TblSeferler">
+        <PropertyRef Name="VarisSehirID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSepet_TblBiletler">
+    <End Role="TblBiletler" Type="Self.TblBiletler" Multiplicity="1" />
+    <End Role="TblSepet" Type="Self.TblSepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblBiletler">
+        <PropertyRef Name="BIletID" />
+      </Principal>
+      <Dependent Role="TblSepet">
+        <PropertyRef Name="BiletID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSepet_TblKullanicilar">
+    <End Role="TblKullanicilar" Type="Self.TblKullanicilar" Multiplicity="1" />
+    <End Role="TblSepet" Type="Self.TblSepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblKullanicilar">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="TblSepet">
+        <PropertyRef Name="KullaniciID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSepet_TblMusteriler">
+    <End Role="TblMusteriler" Type="Self.TblMusteriler" Multiplicity="1" />
+    <End Role="TblSepet" Type="Self.TblSepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblMusteriler">
+        <PropertyRef Name="MusteriID" />
+      </Principal>
+      <Dependent Role="TblSepet">
+        <PropertyRef Name="MusteriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSepet_TblOtobusler">
+    <End Role="TblOtobusler" Type="Self.TblOtobusler" Multiplicity="1" />
+    <End Role="TblSepet" Type="Self.TblSepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblOtobusler">
+        <PropertyRef Name="OtobusID" />
+      </Principal>
+      <Dependent Role="TblSepet">
+        <PropertyRef Name="OtobusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSepet_TblSeferler">
+    <End Role="TblSeferler" Type="Self.TblSeferler" Multiplicity="1" />
+    <End Role="TblSepet" Type="Self.TblSepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblSeferler">
+        <PropertyRef Name="SeferID" />
+      </Principal>
+      <Dependent Role="TblSepet">
+        <PropertyRef Name="SeferID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSepet_TblSehirler">
+    <End Role="TblSehirler" Type="Self.TblSehirler" Multiplicity="1" />
+    <End Role="TblSepet" Type="Self.TblSepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblSehirler">
+        <PropertyRef Name="SehirID" />
+      </Principal>
+      <Dependent Role="TblSepet">
+        <PropertyRef Name="SehirID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblSubeler_TblSehirler">
+    <End Role="TblSehirler" Type="Self.TblSehirler" Multiplicity="1" />
+    <End Role="TblSubeler" Type="Self.TblSubeler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblSehirler">
+        <PropertyRef Name="SehirID" />
+      </Principal>
+      <Dependent Role="TblSubeler">
+        <PropertyRef Name="SehirID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BusBookingModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblBiletler" EntityType="Self.TblBiletler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblCalisanlar" EntityType="Self.TblCalisanlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblCalisanlarTipler" EntityType="Self.TblCalisanlarTipler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblKoltuklar" EntityType="Self.TblKoltuklar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblKullanicilar" EntityType="Self.TblKullanicilar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblMarkalar" EntityType="Self.TblMarkalar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblMasrafTipleri" EntityType="Self.TblMasrafTipleri" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblMesajlar" EntityType="Self.TblMesajlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblMusteriler" EntityType="Self.TblMusteriler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblOtobusler" EntityType="Self.TblOtobusler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblOtobusMasraflari" EntityType="Self.TblOtobusMasraflari" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblSeferler" EntityType="Self.TblSeferler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblSehirler" EntityType="Self.TblSehirler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblSepet" EntityType="Self.TblSepet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblSubeler" EntityType="Self.TblSubeler" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TblBiletler_TblMusteriler" Association="Self.FK_TblBiletler_TblMusteriler">
+      <End Role="TblMusteriler" EntitySet="TblMusteriler" />
+      <End Role="TblBiletler" EntitySet="TblBiletler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblBiletler_TblSeferler" Association="Self.FK_TblBiletler_TblSeferler">
+      <End Role="TblSeferler" EntitySet="TblSeferler" />
+      <End Role="TblBiletler" EntitySet="TblBiletler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblCalisanlar_TblCalisanlarTipler" Association="Self.FK_TblCalisanlar_TblCalisanlarTipler">
+      <End Role="TblCalisanlarTipler" EntitySet="TblCalisanlarTipler" />
+      <End Role="TblCalisanlar" EntitySet="TblCalisanlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblCalisanlar_TblSubeler" Association="Self.FK_TblCalisanlar_TblSubeler">
+      <End Role="TblSubeler" EntitySet="TblSubeler" />
+      <End Role="TblCalisanlar" EntitySet="TblCalisanlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblKoltuklar_TblMusteriler" Association="Self.FK_TblKoltuklar_TblMusteriler">
+      <End Role="TblMusteriler" EntitySet="TblMusteriler" />
+      <End Role="TblKoltuklar" EntitySet="TblKoltuklar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblOtobusler_TblMarkalar" Association="Self.FK_TblOtobusler_TblMarkalar">
+      <End Role="TblMarkalar" EntitySet="TblMarkalar" />
+      <End Role="TblOtobusler" EntitySet="TblOtobusler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblOtobusMasraflari_TblMasrafTipleri" Association="Self.FK_TblOtobusMasraflari_TblMasrafTipleri">
+      <End Role="TblMasrafTipleri" EntitySet="TblMasrafTipleri" />
+      <End Role="TblOtobusMasraflari" EntitySet="TblOtobusMasraflari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblOtobusMasraflari_TblOtobusler" Association="Self.FK_TblOtobusMasraflari_TblOtobusler">
+      <End Role="TblOtobusler" EntitySet="TblOtobusler" />
+      <End Role="TblOtobusMasraflari" EntitySet="TblOtobusMasraflari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSeferler_TblCalisanlar" Association="Self.FK_TblSeferler_TblCalisanlar">
+      <End Role="TblCalisanlar" EntitySet="TblCalisanlar" />
+      <End Role="TblSeferler" EntitySet="TblSeferler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSeferler_TblOtobusler" Association="Self.FK_TblSeferler_TblOtobusler">
+      <End Role="TblOtobusler" EntitySet="TblOtobusler" />
+      <End Role="TblSeferler" EntitySet="TblSeferler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSeferler_TblSehirler" Association="Self.FK_TblSeferler_TblSehirler">
+      <End Role="TblSehirler" EntitySet="TblSehirler" />
+      <End Role="TblSeferler" EntitySet="TblSeferler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSeferler_TblSehirler1" Association="Self.FK_TblSeferler_TblSehirler1">
+      <End Role="TblSehirler" EntitySet="TblSehirler" />
+      <End Role="TblSeferler" EntitySet="TblSeferler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSepet_TblBiletler" Association="Self.FK_TblSepet_TblBiletler">
+      <End Role="TblBiletler" EntitySet="TblBiletler" />
+      <End Role="TblSepet" EntitySet="TblSepet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSepet_TblKullanicilar" Association="Self.FK_TblSepet_TblKullanicilar">
+      <End Role="TblKullanicilar" EntitySet="TblKullanicilar" />
+      <End Role="TblSepet" EntitySet="TblSepet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSepet_TblMusteriler" Association="Self.FK_TblSepet_TblMusteriler">
+      <End Role="TblMusteriler" EntitySet="TblMusteriler" />
+      <End Role="TblSepet" EntitySet="TblSepet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSepet_TblOtobusler" Association="Self.FK_TblSepet_TblOtobusler">
+      <End Role="TblOtobusler" EntitySet="TblOtobusler" />
+      <End Role="TblSepet" EntitySet="TblSepet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSepet_TblSeferler" Association="Self.FK_TblSepet_TblSeferler">
+      <End Role="TblSeferler" EntitySet="TblSeferler" />
+      <End Role="TblSepet" EntitySet="TblSepet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSepet_TblSehirler" Association="Self.FK_TblSepet_TblSehirler">
+      <End Role="TblSehirler" EntitySet="TblSehirler" />
+      <End Role="TblSepet" EntitySet="TblSepet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblSubeler_TblSehirler" Association="Self.FK_TblSubeler_TblSehirler">
+      <End Role="TblSehirler" EntitySet="TblSehirler" />
+      <End Role="TblSubeler" EntitySet="TblSubeler" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

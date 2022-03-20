@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/Home/index">ALTINSOY TURIZM</a>
+            </div>
+            <ul class="nav navbar-nav">
+                @if (User.IsInRole("A"))
+                {
+                    <li><a href="/Sehirler/Index">Sehirler</a></li>
+
+                    <li><a href="/Calisanlar/Index">Calisanlar</a></li>
+                    <li><a href="/CalisanlarTip/Index">Calisanlar Tip</a></li>
+                    <li><a href="/Musteriler/Index">Musteriler</a></li>
+                    <li><a href="/Seferler/Index">Seferler</a></li>
+                    <li><a href="/Biletler/Index">Biletler</a></li>
+                    <li><a href="/Markalar/Index">Markalar</a></li>
+                    <li><a href="/Otobusler/Index">Otobusler</a></li>
+                    <li><a href="/MasrafTipleri/Index">Masraf Tip</a></li>
+                    <li><a href="/OtobusMasraflari/Index">Otobus Masraflari</a></li>
+                    <li><a href="/Mesajlar/Index">Mesajlar</a></li>
+                }
+                <li><a href="/Subeler/Index">Subeler</a></li>
+
+                <li><a href="/Kullanicilar/Logout">Çıkış</a></li>
+                <li><a style="color:ActiveBorder">@User.Identity.Name</a></li>
+                <li><a href="/Sepet/Index"><img style="width:40px; height:40px" src="~/Sepet/sepet01.png"></a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    @RenderSection("scriptdanger",false)
+    @RenderSection("scripts",false)
+
+</body>
+</html>

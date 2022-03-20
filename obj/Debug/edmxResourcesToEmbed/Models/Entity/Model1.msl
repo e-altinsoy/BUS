@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BusBookingModelStoreContainer" CdmEntityContainer="BusBookingEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BusBookingModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblBiletlers">
+      <EntityTypeMapping TypeName="BusBookingModel.TblBiletler">
+        <MappingFragment StoreEntitySet="TblBiletler">
+          <ScalarProperty Name="BIletID" ColumnName="BIletID" />
+          <ScalarProperty Name="MusteriID" ColumnName="MusteriID" />
+          <ScalarProperty Name="SeferID" ColumnName="SeferID" />
+          <ScalarProperty Name="TC" ColumnName="TC" />
+          <ScalarProperty Name="YolcuAd" ColumnName="YolcuAd" />
+          <ScalarProperty Name="YolcuSoyad" ColumnName="YolcuSoyad" />
+          <ScalarProperty Name="YolcuCinsiyet" ColumnName="YolcuCinsiyet" />
+          <ScalarProperty Name="KoltukNo" ColumnName="KoltukNo" />
+          <ScalarProperty Name="Ucret" ColumnName="Ucret" />
+          <ScalarProperty Name="IslemZamani" ColumnName="IslemZamani" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCalisanlars">
+      <EntityTypeMapping TypeName="BusBookingModel.TblCalisanlar">
+        <MappingFragment StoreEntitySet="TblCalisanlar">
+          <ScalarProperty Name="CalisanlarID" ColumnName="CalisanlarID" />
+          <ScalarProperty Name="CalisanTipID" ColumnName="CalisanTipID" />
+          <ScalarProperty Name="SubeID" ColumnName="SubeID" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCalisanlarTiplers">
+      <EntityTypeMapping TypeName="BusBookingModel.TblCalisanlarTipler">
+        <MappingFragment StoreEntitySet="TblCalisanlarTipler">
+          <ScalarProperty Name="CalisanTipID" ColumnName="CalisanTipID" />
+          <ScalarProperty Name="CalisanTipAd" ColumnName="CalisanTipAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblMarkalars">
+      <EntityTypeMapping TypeName="BusBookingModel.TblMarkalar">
+        <MappingFragment StoreEntitySet="TblMarkalar">
+          <ScalarProperty Name="MarkaID" ColumnName="MarkaID" />
+          <ScalarProperty Name="MarkaAd" ColumnName="MarkaAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblMasrafTipleris">
+      <EntityTypeMapping TypeName="BusBookingModel.TblMasrafTipleri">
+        <MappingFragment StoreEntitySet="TblMasrafTipleri">
+          <ScalarProperty Name="MasrafTipID" ColumnName="MasrafTipID" />
+          <ScalarProperty Name="MasrafAd" ColumnName="MasrafAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblMesajlars">
+      <EntityTypeMapping TypeName="BusBookingModel.TblMesajlar">
+        <MappingFragment StoreEntitySet="TblMesajlar">
+          <ScalarProperty Name="MesajID" ColumnName="MesajID" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mesaj" ColumnName="Mesaj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblMusterilers">
+      <EntityTypeMapping TypeName="BusBookingModel.TblMusteriler">
+        <MappingFragment StoreEntitySet="TblMusteriler">
+          <ScalarProperty Name="MusteriID" ColumnName="MusteriID" />
+          <ScalarProperty Name="TC" ColumnName="TC" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+          <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblOtobuslers">
+      <EntityTypeMapping TypeName="BusBookingModel.TblOtobusler">
+        <MappingFragment StoreEntitySet="TblOtobusler">
+          <ScalarProperty Name="OtobusID" ColumnName="OtobusID" />
+          <ScalarProperty Name="Plaka" ColumnName="Plaka" />
+          <ScalarProperty Name="KoltukSayisi" ColumnName="KoltukSayisi" />
+          <ScalarProperty Name="MarkaID" ColumnName="MarkaID" />
+          <ScalarProperty Name="AktifMi" ColumnName="AktifMi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblOtobusMasraflaris">
+      <EntityTypeMapping TypeName="BusBookingModel.TblOtobusMasraflari">
+        <MappingFragment StoreEntitySet="TblOtobusMasraflari">
+          <ScalarProperty Name="OtobusMasrafID" ColumnName="OtobusMasrafID" />
+          <ScalarProperty Name="OtobusID" ColumnName="OtobusID" />
+          <ScalarProperty Name="MasrafTipID" ColumnName="MasrafTipID" />
+          <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblSeferlers">
+      <EntityTypeMapping TypeName="BusBookingModel.TblSeferler">
+        <MappingFragment StoreEntitySet="TblSeferler">
+          <ScalarProperty Name="SeferID" ColumnName="SeferID" />
+          <ScalarProperty Name="KalkisSehirID" ColumnName="KalkisSehirID" />
+          <ScalarProperty Name="VarisSehirID" ColumnName="VarisSehirID" />
+          <ScalarProperty Name="OtobusID" ColumnName="OtobusID" />
+          <ScalarProperty Name="CalisanlarID" ColumnName="CalisanlarID" />
+          <ScalarProperty Name="KalkisZamani" ColumnName="KalkisZamani" />
+          <ScalarProperty Name="VarisZamani" ColumnName="VarisZamani" />
+          <ScalarProperty Name="BiletTutari" ColumnName="BiletTutari" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblSehirlers">
+      <EntityTypeMapping TypeName="BusBookingModel.TblSehirler">
+        <MappingFragment StoreEntitySet="TblSehirler">
+          <ScalarProperty Name="SehirID" ColumnName="SehirID" />
+          <ScalarProperty Name="SehirAd" ColumnName="SehirAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblSubelers">
+      <EntityTypeMapping TypeName="BusBookingModel.TblSubeler">
+        <MappingFragment StoreEntitySet="TblSubeler">
+          <ScalarProperty Name="SubeID" ColumnName="SubeID" />
+          <ScalarProperty Name="SehirID" ColumnName="SehirID" />
+          <ScalarProperty Name="SubeAd" ColumnName="SubeAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblKullanicilars">
+      <EntityTypeMapping TypeName="BusBookingModel.TblKullanicilar">
+        <MappingFragment StoreEntitySet="TblKullanicilar">
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+          <ScalarProperty Name="KullaniciAd" ColumnName="KullaniciAd" />
+          <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblSepets">
+      <EntityTypeMapping TypeName="BusBookingModel.TblSepet">
+        <MappingFragment StoreEntitySet="TblSepet">
+          <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+          <ScalarProperty Name="Saat" ColumnName="Saat" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="ToplamFiyat" ColumnName="ToplamFiyat" />
+          <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+          <ScalarProperty Name="SehirID" ColumnName="SehirID" />
+          <ScalarProperty Name="SeferID" ColumnName="SeferID" />
+          <ScalarProperty Name="OtobusID" ColumnName="OtobusID" />
+          <ScalarProperty Name="BiletID" ColumnName="BiletID" />
+          <ScalarProperty Name="MusteriID" ColumnName="MusteriID" />
+          <ScalarProperty Name="SepetID" ColumnName="SepetID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblKoltuklars">
+      <EntityTypeMapping TypeName="BusBookingModel.TblKoltuklar">
+        <MappingFragment StoreEntitySet="TblKoltuklar">
+          <ScalarProperty Name="MusteriID" ColumnName="MusteriID" />
+          <ScalarProperty Name="KoltukNo" ColumnName="KoltukNo" />
+          <ScalarProperty Name="KoltukTuru" ColumnName="KoltukTuru" />
+          <ScalarProperty Name="KoltukID" ColumnName="KoltukID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

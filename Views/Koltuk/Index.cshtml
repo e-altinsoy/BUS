@@ -1,0 +1,48 @@
+﻿@using Bus.Models.Entity
+@model List<TblKoltuklar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Koltuk ID</th>
+        <th>Koltuk Turu</th>
+        <th>Koltuk No</th>
+        <th>T.C. No.</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Email</th>
+        <th>Telefon</th>
+        <th>Cinsiyet</th>
+        <th>Dogum Tarihi</th>
+        <th>Adres</th>
+        <th>Guncelle</th>
+        <th>Sil</th>
+    </tr>
+    <tbody>
+        @foreach (var k in Model)
+        {
+        <tr>
+            <th>@k.KoltukID</th>
+            <th>@k.KoltukTuru</th>
+            <td>@k.KoltukNo</td>
+            @*<th>@k.TblMusteriler.TC</th>
+            <td>@k.TblMusteriler.Ad</td>
+            <td>@k.TblMusteriler.Soyad</td>
+            <td>@k.TblMusteriler.Email</td>
+            <td>@k.TblMusteriler.Telefon</td>
+            <td>@k.TblMusteriler.Cinsiyet</td>
+            <td>@k.TblMusteriler.DogumTarihi</td>
+            <td>@k.TblMusteriler.Adress</td>*@
+            <td><a href="/Musteriler/MusterilerGetir/@k.KoltukID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Musteriler/Sil/@k.KoltukID" class="btn btn-danger">Sil</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+<a href="/Musteriler/YeniMusterilerEkle/" class="btn btn-primary"> YENI MÜŞTERİ EKLE</a>
+
+

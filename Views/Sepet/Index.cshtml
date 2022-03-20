@@ -1,0 +1,58 @@
+﻿@using Bus.Models.Entity
+@model List<TblSepet>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>@User.Identity.Name</h2>
+<h3 style="margin-bottom:50px">Sepetim</h3>
+<table class="table table-bordered" style="margin-top:60px">
+    <thead style=" background-color:aliceblue;">
+        <tr>
+            <th>SeferID</th>
+            @*<th>SepetID</th>*@
+            <th>TC</th>
+            <th>Ad Soyad</th>
+            <th>BiletID</th>
+            <th>Koltuk</th>
+            <th>Sehir</th>
+            <th>Fiyat</th>
+            @*<th>ToplamFiyat</th>*@
+            <th>Tarih</th>
+            <th>Saat</th>
+            @*<th>KullaniciID</th>*@
+            <th>Guncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <th>@item.SeferID</th>
+            @*<th>@item.SepetID</th>*@
+            <th>@item.TblMusteriler.TC</th>
+            <th>@item.TblMusteriler.Ad @item.TblMusteriler.Soyad</th>
+            <th>@item.BiletID @*@item.TblBiletler.YolcuCinsiyet*@</th>
+            <th>@item.TblOtobusler.KoltukSayisi</th>
+            <th>@item.TblSehirler.SehirAd</th>
+            <th>@item.Fiyat</th>
+            @*<th>@item.ToplamFiyat</th>*@
+            <th>@item.Tarih.ToString("dd.MM.yyyy")</th>
+            <th>@item.Saat</th>
+            @*<th>@item.KullaniciID</th>*@
+            <td><a href="/Sepet/SepetGetir/@item.SepetID" class="btn btn-success">Güncelle</a></td>
+            @*<td><a href="/Sepet/Sil/@item.SepetID" class="btn btn-danger">Sil</a></td>*@
+            <td>@Html.ActionLink("Sil ", "Sil", new { id = item.SepetID}, new { @class = "btn btn-danger", onclick = "return confirm('Silmek Istediginizden Emin misiniz ?')" })</td>
+
+        </tr>
+        }
+    </tbody>
+    <div class="container">
+        @ViewBag.Tutar
+    </div>
+
+
+</table>
+<a href="/Sepet/SatinAl/" class="btn btn-primary"> Satin Al</a>
